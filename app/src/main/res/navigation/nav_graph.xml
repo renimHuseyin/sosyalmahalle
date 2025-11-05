@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+<fragment
+        android:id="@+id/loginFragment"
+        android:name="com.renim.bitirme.LoginFragment"
+        android:label="Giriş">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_login_to_admin"
+            app:destination="@id/adminFragment" />
+    </fragment>
+
+    <!-- RegisterFragment -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.renim.bitirme.RegisterFragment"
+        android:label="Kayıt" >
+        <!-- gerekirse action tanımları buraya -->
+    </fragment>
+
+    <!-- AdminFragment -->
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.renim.bitirme.AdminFragment"
+        android:label="Admin" >
+        <!-- gerekirse action tanımları buraya -->
+    </fragment>
+
+</navigation>
