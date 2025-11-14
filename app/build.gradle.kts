@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.renim.bitirme"
-    compileSdk = 34  // veya 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.renim.bitirme"
@@ -51,15 +51,31 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Firebase
+    // Firebase BoM (zaten vardı, güncel olanı korudum)
     implementation(platform("com.google.firebase:firebase-bom:34.5.0"))
     implementation("com.google.firebase:firebase-analytics")
 
-    // Eklemeler
+    // ⭐ Eklenen Firebase bağımlılıkları
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+    implementation("com.google.firebase:firebase-firestore:25.0.0")
+
+    // UI – Navigation – Lifecycle
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
 
+    // Google Maps
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+
+    // OpenStreetMap (osmdroid)
+    implementation("org.osmdroid:osmdroid-android:6.1.18")
+    implementation("org.osmdroid:osmdroid-wms:6.1.18")
+
+    // Preference
+    implementation("androidx.preference:preference-ktx:1.2.1")
 }
+
+apply(plugin = "com.google.gms.google-services")
