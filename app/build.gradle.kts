@@ -58,6 +58,7 @@ dependencies {
     // ⭐ Eklenen Firebase bağımlılıkları
     implementation("com.google.firebase:firebase-auth:22.3.0")
     implementation("com.google.firebase:firebase-firestore:25.0.0")
+    implementation("com.google.firebase:firebase-storage")
 
     // UI – Navigation – Lifecycle
     implementation("com.google.android.material:material:1.12.0")

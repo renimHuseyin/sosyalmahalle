@@ -6,4 +6,28 @@
     <color name="green_dark">#388E3C</color>
     <color name="hint_color">#9E9E9E</color> <!-- Açık gri (hint text için ideal) -->
     <color name="background_color">#F5F5F5</color> <!-- Yumuşak açık gri arka plan -->
+    <color name="green_primary_dark">#1B5E20</color>  <!-- Daha koyu ton -->
+
+    <color name="gray_light">#EEEEEE</color>
+    <color name="gray_mid">#DDDDDD</color>
+    <color name="gray_dark">#616161</color>
+
+    <color name="text_primary">#212121</color>      <!-- Koyu siyah-gri -->
+    <color name="text_secondary">#757575</color>    <!-- Daha soft yazı rengi -->
+
+    <color name="border_soft">#E0E0E0</color>
+    <color name="border_dark">#C7C7C7</color>
+
+    <color name="error_red">#D32F2F</color>
+    <color name="warning_orange">#FFA000</color>
+    <color name="info_blue">#1976D2</color>
+
+    <color name="button_primary">#2E7D32</color>
+    <color name="button_primary_pressed">#255D28</color>
+    <color name="button_secondary">#4CAF50</color>
+
+    <color name="upload_bg">#F9F9F9</color>
+
+
+
 </resources>

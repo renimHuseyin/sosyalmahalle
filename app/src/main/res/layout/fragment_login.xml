@@ -5,7 +5,8 @@
     android:id="@+id/login_fragment_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
+    android:background="@color/background_color"
+    android:fitsSystemWindows="true">
 
     <!-- Arka plan dalga şekli (gradient efektli) -->
     <View
@@ -136,40 +137,63 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="10dp"/>
 
+            <!-- Dikey butonlar -->
             <LinearLayout
                 android:id="@+id/llButtons"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:gravity="center"
                 app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="20dp">
 
+                <!-- Giriş Yap Butonu -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnRegister"
+                    android:id="@+id/btnLogin"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:text="Kayıt Ol"
+                    android:text="Giriş Yap"
                     android:textAllCaps="false"
                     android:textColor="#2E7D32"
                     app:strokeColor="#66BB6A"
                     app:strokeWidth="1.5dp"
-                    android:layout_marginEnd="12dp"/>
+                    android:layout_marginBottom="16dp"/>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAdminLogin"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:text="Admin Girişi"
-                    android:textAllCaps="false"
-                    android:backgroundTint="#66BB6A"
-                    android:textColor="@android:color/white"/>
+                <!-- Kayıt Ol + Admin Girişi Butonları -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRegister"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="Kayıt Ol"
+                        android:textAllCaps="false"
+                        android:textColor="#2E7D32"
+                        app:strokeColor="#66BB6A"
+                        app:strokeWidth="1.5dp"
+                        android:layout_marginEnd="12dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAdminLogin"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="Admin Girişi"
+                        android:textAllCaps="false"
+                        android:backgroundTint="#66BB6A"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

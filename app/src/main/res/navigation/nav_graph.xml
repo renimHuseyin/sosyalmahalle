@@ -3,16 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
-<fragment
+
+    <!-- LoginFragment -->
+    <fragment
         android:id="@+id/loginFragment"
         android:name="com.renim.bitirme.LoginFragment"
         android:label="Giriş">
+
         <action
             android:id="@+id/action_login_to_register"
             app:destination="@id/registerFragment" />
+
         <action
             android:id="@+id/action_login_to_admin"
             app:destination="@id/adminFragment" />
+
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homeFragment" />
     </fragment>
 
     <!-- RegisterFragment -->
@@ -28,6 +36,14 @@
         android:id="@+id/adminFragment"
         android:name="com.renim.bitirme.AdminFragment"
         android:label="Admin" >
+        <!-- gerekirse action tanımları buraya -->
+    </fragment>
+
+    <!-- HomeFragment -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.renim.bitirme.HomeFragment"
+        android:label="Home" >
         <!-- gerekirse action tanımları buraya -->
     </fragment>
 

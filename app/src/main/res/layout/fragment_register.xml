@@ -5,189 +5,266 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:fitsSystemWindows="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Logo -->
-        <ImageView
-            android:id="@+id/ivLogoRegister"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:src="@drawable/ic_app_logo_circle"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp" />
 
-        <!-- Başlık -->
-        <TextView
-            android:id="@+id/tvRegisterTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Yeni Hesap Oluştur"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/green_primary"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/ivLogoRegister"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp" />
-
-        <!-- İsim -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="İsim"
-            app:layout_constraintTop_toBottomOf="@id/tvRegisterTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Soyisim -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilSurname"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Soyisim"
-            app:layout_constraintTop_toBottomOf="@id/tilName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSurname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Telefon -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPhone"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Telefon Numarası"
-            app:layout_constraintTop_toBottomOf="@id/tilSurname"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- E-posta -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilEmail"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="E-posta"
-            app:layout_constraintTop_toBottomOf="@id/tilPhone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- OSMDROID MAPVIEW (GÜNCELLENEN KISIM) -->
-        <org.osmdroid.views.MapView
-            android:id="@+id/mapView"
-            android:layout_width="0dp"
-            android:layout_height="180dp"
-            app:layout_constraintTop_toBottomOf="@id/tilEmail"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/map_background_border" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSelectLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Konum Seç"
-            android:textAllCaps="false"
-            app:icon="@drawable/ic_location"
-            app:layout_constraintTop_toBottomOf="@id/mapView"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
-
-        <!-- Belge yükleme -->
+        <!-- ★ Profesyonel Logo Kutusu -->
         <LinearLayout
-            android:id="@+id/llDocumentUpload"
+            android:id="@+id/headerBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="18dp"
-            app:layout_constraintTop_toBottomOf="@id/btnSelectLocation"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp"
+            android:background="@drawable/pro_card_round"
+            android:elevation="6dp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/ivDocumentPreview"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:scaleType="centerCrop"
-                android:background="@drawable/ic_upload"
-                android:contentDescription="Belge önizleme" />
+                android:id="@+id/ivLogoRegister"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_app_logo_circle"
+                android:contentDescription="@string/app_name" />
 
             <TextView
-                android:id="@+id/tvDocumentName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Henüz bir belge seçilmedi"
-                android:textColor="@color/hint_color"
-                android:layout_marginStart="12dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnUploadDocument"
+                android:id="@+id/tvRegisterTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yükle"
-                android:textAllCaps="false"
-                android:icon="@drawable/ic_upload"
-                app:iconTint="@color/green_primary" />
+                android:text="Yeni Hesap Oluştur"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/green_primary"
+                android:layout_marginTop="14dp" />
+
         </LinearLayout>
 
-        <!-- Kayıt Ol butonu -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegisterSubmit"
+
+        <!-- ★ Form Card -->
+        <LinearLayout
+            android:id="@+id/registerFormCard"
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:text="Kayıt Ol"
-            android:textAllCaps="false"
-            android:layout_marginTop="24dp"
-            app:backgroundTint="@color/green_primary"
-            android:textColor="@android:color/white"
-            app:layout_constraintTop_toBottomOf="@id/llDocumentUpload"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/pro_card_round"
+            android:elevation="6dp"
+            app:layout_constraintTop_toBottomOf="@id/headerBox"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+            <!-- İsim -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="İsim"
+                app:startIconDrawable="@drawable/ic_person">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- Soyisim -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSurname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Soyisim"
+                android:layout_marginTop="14dp"
+                app:startIconDrawable="@drawable/ic_person">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSurname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- Telefon -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPhone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Telefon Numarası"
+                android:layout_marginTop="14dp"
+                app:startIconDrawable="@drawable/ic_phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- E-posta -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="E-posta"
+                android:layout_marginTop="14dp"
+                app:startIconDrawable="@drawable/ic_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- Şifre -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Şifre"
+                android:layout_marginTop="14dp"
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_lock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!-- İl Seçimi -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Şehir Seçiniz"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_dark" />
+
+            <Spinner
+                android:id="@+id/spinnerCity"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/spinner_background"
+                android:layout_marginTop="6dp" />
+
+
+            <!-- MAPVIEW Card -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Konum Seçimi"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_dark" />
+
+            <org.osmdroid.views.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/map_background_border" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelectLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Konum Seç"
+                android:textAllCaps="false"
+                android:layout_marginTop="10dp"
+
+                app:icon="@drawable/ic_location"
+                app:iconTint="@color/white"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/button_primary" />
+
+
+
+            <!-- Belge Yükleme -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belge Yükleme"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_dark" />
+
+            <LinearLayout
+                android:id="@+id/llDocumentUpload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/doc_upload_bg"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:id="@+id/ivDocumentPreview"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_upload_large" />
+
+                <TextView
+                    android:id="@+id/tvDocumentName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Henüz bir belge seçilmedi"
+                    android:textColor="@color/hint_color"
+                    android:layout_marginStart="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUploadDocument"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yükle"
+                    android:textAllCaps="false"
+
+                    app:icon="@drawable/ic_upload"
+                    app:iconTint="@color/white"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/button_primary" />
+
+            </LinearLayout>
+
+
+            <!-- Kayıt Butonu -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegisterSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Kayıt Ol"
+                android:textAllCaps="false"
+                android:layout_marginTop="28dp"
+                app:backgroundTint="@color/green_primary"
+                android:textColor="@android:color/white"
+                app:cornerRadius="14dp" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
