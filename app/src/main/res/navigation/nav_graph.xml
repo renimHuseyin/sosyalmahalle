@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
@@ -21,30 +22,41 @@
         <action
             android:id="@+id/action_login_to_home"
             app:destination="@id/homeFragment" />
+
+        <!-- ForgotFragment'a geçiş -->
+        <action
+            android:id="@+id/action_login_to_forgot"
+            app:destination="@id/forgotFragment" />
     </fragment>
 
     <!-- RegisterFragment -->
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.renim.bitirme.RegisterFragment"
-        android:label="Kayıt" >
-        <!-- gerekirse action tanımları buraya -->
-    </fragment>
+        android:label="Kayıt" />
 
     <!-- AdminFragment -->
     <fragment
         android:id="@+id/adminFragment"
         android:name="com.renim.bitirme.AdminFragment"
-        android:label="Admin" >
-        <!-- gerekirse action tanımları buraya -->
-    </fragment>
+        android:label="Admin" />
 
     <!-- HomeFragment -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.renim.bitirme.HomeFragment"
-        android:label="Home" >
-        <!-- gerekirse action tanımları buraya -->
+        android:label="Home" />
+
+    <!-- ForgotFragment -->
+    <fragment
+        android:id="@+id/forgotFragment"
+        android:name="com.renim.bitirme.ForgotFragment"
+        android:label="Şifremi Unuttum"
+        tools:layout="@layout/fragment_forgot">
+
+        <action
+            android:id="@+id/action_forgot_to_login"
+            app:destination="@id/loginFragment" />
     </fragment>
 
 </navigation>

@@ -50,9 +50,13 @@ class LoginFragment : Fragment() {
             }
         }
 
-        // Şifremi unuttum tıklaması
+        // Şifremi unuttum → ForgotFragment'a yönlendirme
         binding.tvForgotPassword.setOnClickListener {
-            Snackbar.make(binding.root, "Şifremi unuttum seçildi", Snackbar.LENGTH_SHORT).show()
+            kotlin.runCatching {
+                findNavController().navigate(R.id.action_login_to_forgot)
+            }.onFailure {
+                Snackbar.make(binding.root, "Şifremi Unuttum ekranına gidilemiyor.", Snackbar.LENGTH_SHORT).show()
+            }
         }
 
         // Giriş Yap butonu
@@ -69,7 +73,7 @@ class LoginFragment : Fragment() {
                 // Email ile giriş
                 signInWithEmail(identifier, password)
             } else {
-                // Telefon numarası ile giriş -> Firestore’dan e-mail bul
+                // Telefon numarası ile giriş → Firestore’dan e-mail bul
                 db.collection("users")
                     .whereEqualTo("phone", identifier)
                     .get()
@@ -96,7 +100,6 @@ class LoginFragment : Fragment() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // Giriş başarılı, HomeFragment'e git
                     findNavController().navigate(R.id.action_login_to_home)
                 } else {
                     Snackbar.make(binding.root, "Kullanıcı adı/şifre yanlış.", Snackbar.LENGTH_SHORT).show()

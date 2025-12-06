@@ -59,6 +59,7 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:22.3.0")
     implementation("com.google.firebase:firebase-firestore:25.0.0")
     implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-appcheck-playintegrity:17.1.0")
 
     // UI – Navigation – Lifecycle
     implementation("com.google.android.material:material:1.12.0")
